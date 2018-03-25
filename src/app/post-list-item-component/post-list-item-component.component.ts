@@ -19,4 +19,19 @@ export class PostListItemComponentComponent implements OnInit {
   ngOnInit() {
   }
 
+  onLove() {
+    this.postLoveIts++;
+  }
+
+  onDontLove() {
+    this.postLoveIts--;
+  }
+
+  getColor() {
+    if (this.postLoveIts > 0) {
+      return 'green';
+    } else {
+      return 'red';
+    }
+  }
 }
