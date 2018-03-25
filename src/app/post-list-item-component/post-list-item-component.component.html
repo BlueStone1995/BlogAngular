@@ -1,12 +1,14 @@
 <div class='card horizontal'>
   <div class='card-image'>
-    <img class='image' alt='Image'
-         src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqaHVqVEMnhaqNErm4RQCghmEP4Gp5FL0pcmkV53bfN8169Ndt'>
-    <span class='card-title'>Titre</span>
+    <img style="height: 250px; width: 500px;" class='image' alt='Image'
+         src='{{postImage}}'>
+    <span class='card-title'>{{ postTitle }}</span>
   </div>
   <div class='card-stacked'>
-    <div class='card-content'>
-      <p class='corps'>Une jolie photo...</p>
+    <div class='card-content center'>
+      <p class='corps'>{{ postContent }}</p>
+      <br><br>
+      <div><i class="tiny material-icons">access_time</i>{{postCreated_at | date: 'd MMMM y' }}</div>
     </div>
     <div class='card-action center'>
       <a href='#'>Love it</a>

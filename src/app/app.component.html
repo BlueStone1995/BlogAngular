@@ -18,15 +18,13 @@
     </div>
   </div>
 </nav>
-<br><br><br>
-<br><br><br>
+<br><br>
+<h4 class="light center">Bienvenue sur mon blog Angular !</h4>
 <br><br>
 
-<app-post-list-component></app-post-list-component>
-
-<br><br>
-<br><br><br>
-<br><br><br>
+<app-post-list-component *ngFor="let d of data"
+                         [post]="d.post"></app-post-list-component>
+<br>
 <footer class="page-footer orange">
   <div class="center-align">
     Créé par <a class="orange-text text-lighten-3">Pierre MB</a>
