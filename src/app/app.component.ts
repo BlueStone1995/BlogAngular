@@ -21,7 +21,7 @@ export class AppComponent {
     {
       post: {
         image: 'https://i1.wp.com/olivierdouard.com/wp-content/uploads/2017/05/paysage-arrentiere-min-min.jpg',
-        title: 'Rivière',
+        title: 'Forêt',
         content: 'Un paysage est une vue d\'une portion de l\'espace terrestre, représentée ou observée dans la majorité des cas à l\'horizontale et photographiquement par un observateur.',
         loveIts: '0',
         created_at: 'Sun Mar 25 2018 23:25:22 GMT+0200 (CEST)'
@@ -30,7 +30,7 @@ export class AppComponent {
     {
       post: {
         image: 'https://favogram.com/wp-content/uploads/2015/11/8e67Foggy-Wonderlands-norway-1.jpg',
-        title: 'Paysage',
+        title: 'Montagne',
         content: 'Un paysage est une vue d\'une portion de l\'espace terrestre, représentée ou observée dans la majorité des cas à l\'horizontale et photographiquement par un observateur.',
         loveIts: '0',
         created_at: 'Sun Mar 25 2018 23:25:22 GMT+0200 (CEST)'
@@ -39,7 +39,7 @@ export class AppComponent {
     {
       post: {
         image: 'https://i1.wp.com/supertrampontheroad.com/wp-content/uploads/2017/02/DSC_3793-1-2.jpg',
-        title: 'Montagne',
+        title: 'Paysage',
         content: 'SUn paysage est une vue d\'une portion de l\'espace terrestre, représentée ou observée dans la majorité des cas à l\'horizontale et photographiquement par un observateur.',
         loveIts: '0',
         created_at: 'Sun Mar 25 2018 23:25:22 GMT+0200 (CEST)'
@@ -48,7 +48,7 @@ export class AppComponent {
     {
       post: {
         image: 'https://haruharu.fr/wp-content/uploads/2016/11/coree-automne-paysage-1200x625.jpg',
-        title: 'Montagne',
+        title: 'Corée',
         content: 'Un paysage est une vue d\'une portion de l\'espace terrestre, représentée ou observée dans la majorité des cas à l\'horizontale et photographiquement par un observateur.',
         loveIts: '0',
         created_at: 'Sun Mar 25 2018 23:25:22 GMT+0200 (CEST)'
