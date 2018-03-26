@@ -1,6 +1,6 @@
 <div class='card horizontal'>
   <div class='card-image'>
-    <img style="height: 300px; width: 550px;" class='image' alt='Image'
+    <img style="height: 350px; width: 625px;" class='image' alt='Image'
          src='{{postImage}}'>
     <span class='card-title'>{{ postTitle }}</span>
   </div>
@@ -9,6 +9,8 @@
       <p class='corps'>{{ postContent }}</p>
       <br><br>
       <div><i class="tiny material-icons">access_time</i>{{postCreated_at | date: 'd MMMM y' }}</div>
+      <br>
+      <p>Like : {{postLoveIts}}</p>
     </div>
     <div class='card-action center'>
       <div class="row">
