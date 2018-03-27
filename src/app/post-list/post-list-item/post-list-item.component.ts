@@ -18,7 +18,7 @@ export class PostListItemComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.post = new Post('', '', '', 0, null);
+    this.post = new Post('', '', 0, null);
     const id = this.route.snapshot.params['id'];
     this.postsService.getSinglePost(+id).then( // + pour caster en number
       (post: Post) => {

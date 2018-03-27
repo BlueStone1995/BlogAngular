@@ -29,8 +29,7 @@
             <p *ngIf="fileUploaded">Fichier Chargé</p>
           </div>
         </div>
-        <button [disabled]="postForm.invalid || fileIsUploading" class="btn waves-effect waves-light" type="submit"
-                name="action">Créer
+        <button [disabled]="postForm.invalid || fileIsUploading" class="btn waves-effect waves-light" type="submit">Créer
           <i class="material-icons right">send</i>
         </button>
       </form>

@@ -27,7 +27,6 @@ export class PostFormComponent implements OnInit {
 
   initForm() {
     this.postForm = this.formBuilder.group({
-      image: ['', Validators.required],
       title: ['', Validators.required],
       content: ['', Validators.required]
     });
