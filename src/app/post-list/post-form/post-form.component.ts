@@ -12,6 +12,9 @@ import {Post} from '../../models/Post.model';
 export class PostFormComponent implements OnInit {
 
   postForm: FormGroup;
+  fileIsUploading = false; // Pour savoir si mon fichier est en chargement
+  fileURL: string;
+  fileUploaded = false; // Pour savoir fin chargement
 
   constructor(private formBuilder: FormBuilder,
               private postsService: PostsService,
@@ -31,14 +34,31 @@ export class PostFormComponent implements OnInit {
   }
 
   onSavePost() {
-    const image = this.postForm.get('image').value;
     const title = this.postForm.get('title').value;
     const content = this.postForm.get('content').value;
     const loveIts = 0;
     const created_at = new Date();
-    const post = new Post(image, title, content, loveIts, created_at);
-    this.postsService.createNewPost(post);
+    const newPost = new Post(title, content, loveIts, created_at);
+    if (this.fileURL && this.fileURL !== '') {
+      newPost.image = this.fileURL;
+    }
+    this.postsService.createNewPost(newPost);
     this.router.navigate(['/posts']);
   }
 
+
+  onUploadFile(file: File) {
+    this.fileIsUploading = true;
+    this.postsService.uploadFile(file).then(
+      (url: string) => {
+        this.fileURL = url;
+        this.fileIsUploading = false;
+        this.fileUploaded = true;
+      }
+    );
+  }
+
+  detectFiles(event) {
+    this.onUploadFile(event.target.files[0]);
+  }
 }

@@ -51,6 +51,18 @@ export class PostsService {
   }
 
   removePost(post: Post) {
+    if (post.image) {
+      const storageRef = firebase.storage().refFromURL(post.image);
+      storageRef.delete().then(
+        () => {
+          console.log('Photo supprimée !');
+        }
+      ).catch(
+        (error) => {
+          console.log('Fichier non trouvé : ' + error);
+        }
+      );
+    }
     const indexPostToRemove = this.posts.findIndex(
       (postElement) => {
         if (postElement === post) {
@@ -61,5 +73,28 @@ export class PostsService {
     this.posts.splice(indexPostToRemove, 1);
     this.savePosts();
     this.emmitPosts();
+  }
+
+  uploadFile(file: File) {
+    return new Promise(
+      (resolve, reject) => {
+        const almostUniqueFileName = Date.now().toString();
+        const upload = firebase.storage().ref()
+          .child('images/' + almostUniqueFileName + file.name) // Enregistre le fichier au nom de dossier choisis
+          .put(file);
+        upload.on(firebase.storage.TaskEvent.STATE_CHANGED, // Réagit au changement d'état de mon upload via firebase
+          () => {
+            console.log('Chargement...');
+          },
+          (error) => {
+            console.log('Erreur de chargement : ' + error);
+            reject();
+          },
+          () => {
+            resolve(upload.snapshot.downloadURL);
+          }
+        );
+      }
+    );
   }
 }

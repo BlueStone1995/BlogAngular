@@ -5,12 +5,7 @@
       <h5 class="light">Nouveau Post</h5>
       <br>
       <form [formGroup]="postForm" (ngSubmit)="onSavePost()">
-        <div class="row">
-          <div class="input-field col s12">
-            <input formControlName="image" id="image" type="text" class="validate">
-            <label for="image">URL Image</label>
-          </div>
-        </div>
+
 
         <div class="row">
           <div class="input-field col s12">
@@ -26,11 +21,21 @@
           </div>
         </div>
 
-        <button [disabled]="postForm.invalid" class="btn waves-effect waves-light" type="submit" name="action">Créer
+        <div class="row">
+          <label>Ajouter une image :</label>
+          <div class="input-field col s12">
+            <input type="file" (change)="detectFiles($event)"
+                   class="form-control" accept="image/*">
+            <p *ngIf="fileUploaded">Fichier Chargé</p>
+          </div>
+        </div>
+        <button [disabled]="postForm.invalid || fileIsUploading" class="btn waves-effect waves-light" type="submit"
+                name="action">Créer
           <i class="material-icons right">send</i>
         </button>
       </form>
     </div>
   </div>
 </div>
+<br>
 

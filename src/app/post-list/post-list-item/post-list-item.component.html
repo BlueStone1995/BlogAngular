@@ -1,7 +1,7 @@
 <div class='card horizontal'>
   <div class='card-image'>
-    <img style="height: 350px; width: 625px;" class='image' alt='Image'
-         src='{{post.image}}'>
+    <img style="height: 350px; width: 625px;" class='image' alt='Image' *ngIf="post.image"
+         [src]="post.image">
     <span class='card-title'>{{ post.title }}</span>
   </div>
   <div class='card-stacked'>
