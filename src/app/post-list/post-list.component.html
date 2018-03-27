@@ -11,7 +11,7 @@
           <span class='card-title'>{{ post.title }}</span>
         </div>
         <div class='card-stacked'>
-          <div class='card-content center'>
+          <div [ngStyle]="{color: getColor(post)}" class='card-content center'>
             <p class='corps'>{{ post.content }}</p>
             <br><br>
             <div><i class="tiny material-icons">access_time</i>{{post.created_at | date: 'd MMMM y' }}</div>

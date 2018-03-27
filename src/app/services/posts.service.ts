@@ -97,4 +97,28 @@ export class PostsService {
       }
     );
   }
+
+  setLove(post: Post) {
+    post.loveIts++;
+    this.savePosts();
+    this.emmitPosts();
+  }
+
+  setDontLove(post: Post) {
+    post.loveIts--;
+    this.savePosts();
+    this.emmitPosts();
+  }
+
+  getColor(post: Post): string {
+    if (post.loveIts === 0) {
+      return 'black';
+    } else if (post.loveIts > 0) {
+      return 'green';
+    } else if (post.loveIts < 0) {
+      return 'red';
+    }
+    this.savePosts();
+    this.emmitPosts();
+  }
 }

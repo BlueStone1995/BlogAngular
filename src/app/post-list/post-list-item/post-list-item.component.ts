@@ -1,16 +1,18 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {Post} from '../../models/Post.model';
 import {ActivatedRoute, Router} from '@angular/router';
 import {PostsService} from '../../services/posts.service';
+import {Subscription} from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-post-list-item',
   templateUrl: './post-list-item.component.html',
   styleUrls: ['./post-list-item.component.scss']
 })
-export class PostListItemComponent implements OnInit {
+export class PostListItemComponent implements OnInit, OnDestroy {
 
   post: Post;
+  postSubscription: Subscription;
 
   constructor(private route: ActivatedRoute,
               private postsService: PostsService,
@@ -25,6 +27,14 @@ export class PostListItemComponent implements OnInit {
         this.post = post;
       }
     );
+
+    this.postSubscription = this.postsService.postsSubject.subscribe(
+      (posts: Post[]) => {
+        this.post = posts[id];
+      }
+    );
+    this.postsService.getPosts();
+    this.postsService.emmitPosts();
   }
 
   onBack() {
@@ -32,21 +42,18 @@ export class PostListItemComponent implements OnInit {
   }
 
   onLove() {
-    this.post.loveIts++;
-
+    this.postsService.setLove(this.post);
   }
 
   onDontLove() {
-    this.post.loveIts--;
+    this.postsService.setDontLove(this.post);
   }
 
-  getColor() {
-    if (this.post.loveIts === 0) {
-      return 'black';
-    } else if (this.post.loveIts > 0) {
-      return 'green';
-    } else if (this.post.loveIts < 0) {
-      return 'red';
-    }
+  getColor(): string {
+    return this.postsService.getColor(this.post);
+  }
+
+  ngOnDestroy() {
+    this.postSubscription.unsubscribe();
   }
 }

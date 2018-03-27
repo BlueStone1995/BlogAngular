@@ -3,6 +3,8 @@ import {Post} from '../models/Post.model';
 import {Subscription} from 'rxjs/Subscription';
 import {PostsService} from '../services/posts.service';
 import {Router} from '@angular/router';
+import {forEach} from '@angular/router/src/utils/collection';
+import {element} from 'protractor';
 
 @Component({
   selector: 'app-post-list',
@@ -39,7 +41,13 @@ export class PostListComponent implements OnInit, OnDestroy {
     this.router.navigate(['/posts', 'view', id]);
   }
 
+  getColor(post: Post): string {
+      return this.postsService.getColor(post);
+
+  }
+
   ngOnDestroy() {
     this.postSubscription.unsubscribe();
   }
+
 }
