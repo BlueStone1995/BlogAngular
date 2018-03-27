@@ -33,6 +33,17 @@
             <div class="file-path-wrapper">
               <input class="file-path validate" type="text" placeholder="Upload one or more files">
             </div>
+            <div *ngIf="fileIsUploading" class="preloader-wrapper small active">
+              <div class="spinner-layer spinner-green-only">
+                <div class="circle-clipper left">
+                  <div class="circle"></div>
+                </div><div class="gap-patch">
+                <div class="circle"></div>
+              </div><div class="circle-clipper right">
+                <div class="circle"></div>
+              </div>
+              </div>
+            </div>
           </div>
         </div>
         <button [disabled]="postForm.invalid || fileIsUploading" class="btn waves-effect waves-light" type="submit">
