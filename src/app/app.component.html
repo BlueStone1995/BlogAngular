@@ -1,32 +1,13 @@
-<nav class="light-blue lighten-1" role="navigation">
-  <div class="nav-wrapper">
-    <div class="row">
-      <div class="col s2">
-        <a id="logo" href="#" class="valign-wrapper">
-          <img src="assets/img/logo.png" alt="logo" class="responsive-img container"
-               style="height: 60px; width: 60px; margin-left: 0px">
-        </a>
-      </div>
-      <div class="nav-wrapper">
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li><a href="#">S'inscrire</a></li>
-          <li><a href="#">Connexion</a></li>
-          <li><a href="#">Admin</a></li>
-        </ul>
-      </div>
+<app-header></app-header>
+<div class="body">
+  <br><br>
+  <h4 class="light center">Bienvenue sur mon blog Angular !</h4>
+  <br><br>
+  <router-outlet></router-outlet>
+</div>
 
-    </div>
-  </div>
-</nav>
-<br><br>
-<h4 class="light center">Bienvenue sur mon blog Angular !</h4>
-<br><br>
-
-<app-post-list-component *ngFor="let d of data"
-                         [post]="d.post"></app-post-list-component>
+<app-post-list *ngFor="let d of data"
+               [post]="d.post"></app-post-list>
 <br>
-<footer class="page-footer orange">
-  <div class="center-align">
-    Créé par <a class="orange-text text-lighten-3">Pierre MB</a>
-  </div>
-</footer>
+
+<app-footer></app-footer>

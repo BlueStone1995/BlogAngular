@@ -40,7 +40,7 @@ export class AppComponent {
       post: {
         image: 'https://i1.wp.com/supertrampontheroad.com/wp-content/uploads/2017/02/DSC_3793-1-2.jpg',
         title: 'Paysage',
-        content: 'SUn paysage est une vue d\'une portion de l\'espace terrestre, représentée ou observée dans la majorité des cas à l\'horizontale et photographiquement par un observateur.',
+        content: 'Un paysage est une vue d\'une portion de l\'espace terrestre, représentée ou observée dans la majorité des cas à l\'horizontale et photographiquement par un observateur.',
         loveIts: '0',
         created_at: 'Sun Mar 25 2018 23:25:22 GMT+0200 (CEST)'
       }
