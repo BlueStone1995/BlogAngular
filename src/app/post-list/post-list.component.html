@@ -1,11 +1,29 @@
+<div class="row center">
+  <button class="waves-effect waves-light btn" (click)="onNewPost()">Nouveau Post</button>
+</div>
 <div class="section no-pad-bot container">
-
-  <app-post-list-item
-    [postImage]="post.image"
-    [postTitle]="post.title"
-    [postContent]="post.content"
-    [postLoveIts]="post.loveIts"
-    [postCreated_at]="post.created_at"></app-post-list-item>
-  <br><br>
-
+  <div *ngFor="let post of posts; let i = index">
+    <div class='card horizontal'>
+      <div class='card-image'>
+        <img style="height: 350px; width: 625px;" class='image' alt='Image'
+             src='{{post.image}}'>
+        <span class='card-title'>{{ post.title }}</span>
+      </div>
+      <div class='card-stacked'>
+        <div class='card-content center'>
+          <p class='corps'>{{ post.content }}</p>
+          <br><br>
+          <div><i class="tiny material-icons">access_time</i>{{post.created_at | date: 'd MMMM y' }}</div>
+          <br>
+          <p>Like : {{post.loveIts}}</p>
+        </div>
+        <div class='card-action center'>
+          <div class="row">
+            <button class="waves-effect waves-light btn" (click)="onViewPost(i)">Détails</button>
+            <button class="waves-effect waves-light btn" (click)="onDeletePost(post)">Supprimer</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

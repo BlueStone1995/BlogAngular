@@ -2,7 +2,7 @@
   <div class="nav-wrapper">
     <div class="row">
       <div class="col s2">
-        <a id="logo" href="#" class="valign-wrapper">
+        <a id="logo" routerLink="posts" class="valign-wrapper">
           <img src="assets/img/logo.png" alt="logo" class="responsive-img container"
                style="height: 60px; width: 60px; margin-left: 0px">
         </a>
@@ -20,9 +20,6 @@
           </li>
           <li *ngIf="!isAuth" routerLinkActive="active">
             <a routerLink="auth/signin">Connexion</a>
-          </li>
-          <li *ngIf="!isAuth">
-            <a routerLink="posts">Admin</a>
           </li>
         </ul>
       </div>

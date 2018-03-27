@@ -1,4 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {Post} from '../../models/Post.model';
+import {ActivatedRoute, Router} from '@angular/router';
+import {PostsService} from '../../services/posts.service';
 
 @Component({
   selector: 'app-post-list-item',
@@ -7,32 +10,42 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class PostListItemComponent implements OnInit {
 
-  @Input() postImage: string;
-  @Input() postTitle: string;
-  @Input() postContent: string;
-  @Input() postLoveIts: number;
-  @Input() postCreated_at: Date;
+  post: Post;
 
-  constructor() {
+  constructor(private route: ActivatedRoute,
+              private postsService: PostsService,
+              private router: Router) {
   }
 
   ngOnInit() {
+    this.post = new Post('', '', '', 0, null);
+    const id = this.route.snapshot.params['id'];
+    this.postsService.getSinglePost(+id).then( // + pour caster en number
+      (post: Post) => {
+        this.post = post;
+      }
+    );
+  }
+
+  onBack() {
+    this.router.navigate(['/posts']);
   }
 
   onLove() {
-    this.postLoveIts++;
+    this.post.loveIts++;
+
   }
 
   onDontLove() {
-    this.postLoveIts--;
+    this.post.loveIts--;
   }
 
   getColor() {
-    if (this.postLoveIts === 0) {
+    if (this.post.loveIts === 0) {
       return 'black';
-    } else if (this.postLoveIts > 0) {
+    } else if (this.post.loveIts > 0) {
       return 'green';
-    } else if (this.postLoveIts < 0) {
+    } else if (this.post.loveIts < 0) {
       return 'red';
     }
   }

@@ -1,16 +1,16 @@
 <div class='card horizontal'>
   <div class='card-image'>
     <img style="height: 350px; width: 625px;" class='image' alt='Image'
-         src='{{postImage}}'>
-    <span class='card-title'>{{ postTitle }}</span>
+         src='{{post.image}}'>
+    <span class='card-title'>{{ post.title }}</span>
   </div>
   <div class='card-stacked'>
     <div [ngStyle]="{color: getColor()}" class='card-content center'>
-      <p class='corps'>{{ postContent }}</p>
+      <p class='corps'>{{ post.content }}</p>
       <br><br>
-      <div><i class="tiny material-icons">access_time</i>{{postCreated_at | date: 'd MMMM y' }}</div>
+      <div><i class="tiny material-icons">access_time</i>{{post.created_at | date: 'd MMMM y' }}</div>
       <br>
-      <p>Like : {{postLoveIts}}</p>
+      <p>Like : {{pos.loveIts}}</p>
     </div>
     <div class='card-action center'>
       <div class="row">
@@ -20,3 +20,5 @@
     </div>
   </div>
 </div>
+
+<button class="waves-effect waves-light btn center" (click)="onBack()">Retour</button>
