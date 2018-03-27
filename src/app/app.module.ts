@@ -15,15 +15,17 @@ import {AuthGuardService} from './services/auth-guard.service';
 import {PostsService} from './services/posts.service';
 import {HttpClientModule} from '@angular/common/http';
 import {RouterModule, Routes} from '@angular/router';
-import { FooterComponent } from './footer/footer.component';
+import {FooterComponent} from './footer/footer.component';
 
 // Routing application
 const appRoutes: Routes = [
   {path: 'auth/signup', component: SignupComponent},
   {path: 'auth/signin', component: SigninComponent},
-  {path: 'posts', component: PostListComponent},
-  {path: 'posts/new', component: PostFormComponent},
-  {path: 'posts/view/:id', component: PostListItemComponent}
+  {path: 'posts', canActivate: [AuthGuardService], component: PostListComponent},
+  {path: 'posts/new', canActivate: [AuthGuardService], component: PostFormComponent},
+  {path: 'posts/view/:id', canActivate: [AuthGuardService], component: PostListItemComponent},
+  {path: '', redirectTo: 'posts', pathMatch: 'full'},
+  {path: '**', redirectTo: 'posts'}
 ];
 
 @NgModule({

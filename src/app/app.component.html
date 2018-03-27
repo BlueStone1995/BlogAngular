@@ -1,13 +1,10 @@
 <app-header></app-header>
+
 <div class="body">
   <br><br>
   <h4 class="light center">Bienvenue sur mon blog Angular !</h4>
   <br><br>
   <router-outlet></router-outlet>
 </div>
-
-<app-post-list *ngFor="let d of data"
-               [post]="d.post"></app-post-list>
-<br>
 
 <app-footer></app-footer>
