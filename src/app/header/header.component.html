@@ -1,29 +1,31 @@
-<nav class="light-blue lighten-1" role="navigation">
-  <div class="nav-wrapper">
-    <div class="row">
-      <div class="col s2">
-        <a id="logo" routerLink="posts" class="valign-wrapper">
-          <img src="assets/img/logo.png" alt="logo" class="responsive-img container"
-               style="height: 60px; width: 60px; margin-left: 0px">
-        </a>
-      </div>
-      <div class="nav-wrapper">
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li *ngIf="isAuth" routerLinkActive="active">
-            <a routerLink="posts">Posts</a>
-          </li>
-          <li *ngIf="isAuth">
-            <a (click)="onSignOut()">Déconnexion</a>
-          </li>
-          <li *ngIf="!isAuth" routerLinkActive="active">
-            <a routerLink="auth/signup">S'inscrire</a>
-          </li>
-          <li *ngIf="!isAuth" routerLinkActive="active">
-            <a routerLink="auth/signin">Connexion</a>
-          </li>
-        </ul>
-      </div>
+<div class="navbar-fixed">
+  <nav class="light-blue lighten-1" role="navigation">
+    <div class="nav-wrapper">
+      <div class="row">
+        <div class="col s2">
+          <a id="logo" routerLink="posts" class="valign-wrapper">
+            <img src="assets/img/logo.png" alt="logo" class="responsive-img container"
+                 style="height: 60px; width: 60px; margin-left: 0px">
+          </a>
+        </div>
+        <div class="nav-wrapper">
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li *ngIf="isAuth" routerLinkActive="active">
+              <a routerLink="posts">Posts</a>
+            </li>
+            <li *ngIf="isAuth">
+              <a (click)="onSignOut()">Déconnexion</a>
+            </li>
+            <li *ngIf="!isAuth" routerLinkActive="active">
+              <a routerLink="auth/signup">S'inscrire</a>
+            </li>
+            <li *ngIf="!isAuth" routerLinkActive="active">
+              <a routerLink="auth/signin">Connexion</a>
+            </li>
+          </ul>
+        </div>
 
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
+</div>

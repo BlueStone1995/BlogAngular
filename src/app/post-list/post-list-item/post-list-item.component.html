@@ -1,24 +1,29 @@
-<div class='card horizontal'>
-  <div class='card-image'>
-    <img style="height: 350px; width: 625px;" class='image' alt='Image' *ngIf="post.image"
-         [src]="post.image">
-    <span class='card-title'>{{ post.title }}</span>
-  </div>
-  <div class='card-stacked'>
-    <div [ngStyle]="{color: getColor()}" class='card-content center'>
-      <p class='corps'>{{ post.content }}</p>
-      <br><br>
-      <div><i class="tiny material-icons">access_time</i>{{post.created_at | date: 'd MMMM y' }}</div>
-      <br>
-      <p>Like : {{pos.loveIts}}</p>
-    </div>
-    <div class='card-action center'>
-      <div class="row">
-        <button class="waves-effect waves-light btn" (click)="onLove()">Love it</button>
-        <button class="waves-effect waves-light btn red" (click)="onDontLove()">Don't love it</button>
+<div class="section no-pad-bot container">
+  <div class="row">
+    <div class="center">
+      <div class="card ">
+        <div class="card-image">
+          <img class='image' alt='' *ngIf="post.image"
+               [src]="post.image">
+          <span class='card-title'>{{ post.title }}</span>
+        </div>
+        <div [ngStyle]="{color: getColor()}" class="card-content center">
+          <p class='corps'>{{ post.content }}</p>
+          <br><br>
+          <div><i class="tiny material-icons">access_time</i>{{post.created_at | date: 'd MMMM y' }}</div>
+          <br>
+          <p>Like : {{pos.loveIts}}</p>
+        </div>
+        <div class="card-action center">
+          <a class="" (click)="onLove()">Love it</a>
+          <a class="" (click)="onDontLove()">Don't love it</a>
+        </div>
       </div>
     </div>
   </div>
 </div>
-
-<button class="waves-effect waves-light btn center" (click)="onBack()">Retour</button>
+<br><br>
+<div class="row center">
+  <button class="waves-effect waves-light btn" (click)="onBack()">Retour</button>
+</div>
+<br>

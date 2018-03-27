@@ -23,13 +23,20 @@
 
         <div class="row">
           <label>Ajouter une image :</label>
-          <div class="input-field col s12">
-            <input type="file" (change)="detectFiles($event)"
-                   class="form-control" accept="image/*">
-            <p *ngIf="fileUploaded">Fichier Chargé</p>
+
+          <div class="file-field input-field">
+            <div class="btn">
+              <span>File</span>
+              <input type="file" (change)="detectFiles($event)" accept="image/*">
+              <p *ngIf="fileUploaded">Fichier Chargé</p>
+            </div>
+            <div class="file-path-wrapper">
+              <input class="file-path validate" type="text" placeholder="Upload one or more files">
+            </div>
           </div>
         </div>
-        <button [disabled]="postForm.invalid || fileIsUploading" class="btn waves-effect waves-light" type="submit">Créer
+        <button [disabled]="postForm.invalid || fileIsUploading" class="btn waves-effect waves-light" type="submit">
+          Créer
           <i class="material-icons right">send</i>
         </button>
       </form>
