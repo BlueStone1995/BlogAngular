@@ -6,7 +6,7 @@
     <div>
       <div class='card horizontal'>
         <div class='card-image'>
-          <img class='image' alt='Image'
+          <img class='image' style="height: 300px" alt='Image'
                src='{{post.image}}'>
           <span class='card-title'>{{ post.title }}</span>
         </div>
@@ -16,7 +16,7 @@
             <br><br>
             <div><i class="tiny material-icons">access_time</i>{{post.created_at | date: 'd MMMM y' }}</div>
             <br>
-            <p>Like : {{post.loveIts}}</p>
+            <p><i class="tiny material-icons">favorite</i> {{post.loveIts}}</p>
           </div>
           <div class='card-action center'>
             <div class="row">

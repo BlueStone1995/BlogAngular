@@ -12,7 +12,7 @@
           <br><br>
           <div><i class="tiny material-icons">access_time</i>{{post.created_at | date: 'd MMMM y' }}</div>
           <br>
-          <p>Like : {{post.loveIts}}</p>
+          <p><i class="tiny material-icons">favorite</i> {{post.loveIts}}</p>
         </div>
         <div class="card-action center">
           <a class="" (click)="onLove()">Love it</a>
