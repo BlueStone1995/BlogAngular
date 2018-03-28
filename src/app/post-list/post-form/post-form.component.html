@@ -20,28 +20,28 @@
             <label for="content">Contenu</label>
           </div>
         </div>
-
+        <br>
         <div class="row">
-          <label>Ajouter une image :</label>
-
           <div class="file-field input-field">
             <div class="btn">
-              <span>File</span>
+              <span>Fichier</span>
               <input type="file" (change)="detectFiles($event)" accept="image/*">
               <p *ngIf="fileUploaded">Fichier Chargé</p>
             </div>
             <div class="file-path-wrapper">
-              <input class="file-path validate" type="text" placeholder="Upload one or more files">
+              <input class="file-path validate" type="text" placeholder="Ajouter une image">
             </div>
             <div *ngIf="fileIsUploading" class="preloader-wrapper small active">
               <div class="spinner-layer spinner-green-only">
                 <div class="circle-clipper left">
                   <div class="circle"></div>
-                </div><div class="gap-patch">
-                <div class="circle"></div>
-              </div><div class="circle-clipper right">
-                <div class="circle"></div>
-              </div>
+                </div>
+                <div class="gap-patch">
+                  <div class="circle"></div>
+                </div>
+                <div class="circle-clipper right">
+                  <div class="circle"></div>
+                </div>
               </div>
             </div>
           </div>
