@@ -15,7 +15,6 @@ import {AuthGuardService} from './services/auth-guard.service';
 import {PostsService} from './services/posts.service';
 import {HttpClientModule} from '@angular/common/http';
 import {RouterModule, Routes} from '@angular/router';
-import {FooterComponent} from './footer/footer.component';
 
 // Routing application
 const appRoutes: Routes = [
@@ -37,7 +36,6 @@ const appRoutes: Routes = [
     SigninComponent,
     PostFormComponent,
     HeaderComponent,
-    FooterComponent
   ],
   imports: [
     BrowserModule,
