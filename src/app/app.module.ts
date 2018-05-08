@@ -38,7 +38,7 @@ const appRoutes: Routes = [
     HeaderComponent,
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'blog-angular' }),
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
